@@ -1,0 +1,115 @@
+import { Invoice } from "@/lib/types";
+
+export const invoices: Invoice[] = [
+  {
+    id: "INV-1048",
+    vendorId: "VENDOR-001",
+    amount: 4860,
+    currency: "USD",
+    purchaseOrderId: "PO-2024-0891",
+    status: "matched",
+    dueDate: "2026-06-15",
+    extractedFields: {
+      invoiceNumber: "INV-1048",
+      vendorName: "Northwind Packaging",
+      amount: 4860,
+      currency: "USD",
+      issueDate: "2026-05-20",
+      dueDate: "2026-06-15",
+      purchaseOrderRef: "PO-2024-0891",
+      taxId: "12-3456789",
+      bankAccountChanged: true,
+      bankChangeDate: "2026-05-28",
+    },
+  },
+  {
+    id: "INV-1051",
+    vendorId: "VENDOR-002",
+    amount: 1250,
+    currency: "USD",
+    purchaseOrderId: "PO-2024-0894",
+    status: "pending",
+    dueDate: "2026-06-20",
+    extractedFields: {
+      invoiceNumber: "INV-1051",
+      vendorName: "Contoso Shipping Co.",
+      amount: 1250,
+      currency: "USD",
+      issueDate: "2026-05-22",
+      dueDate: "2026-06-20",
+      purchaseOrderRef: "PO-2024-0894",
+      shippingAddress: "742 Evergreen Terrace, Springfield, IL 62704",
+      correctedAddress: "742 Evergreen Terrace, Springfield, IL 62701",
+    },
+  },
+  {
+    id: "INV-1054",
+    vendorId: "VENDOR-003",
+    amount: 3200,
+    currency: "USD",
+    purchaseOrderId: "PO-2024-0897",
+    status: "duplicate",
+    dueDate: "2026-06-10",
+    extractedFields: {
+      invoiceNumber: "INV-1054",
+      vendorName: "Fabrikam Office Solutions",
+      amount: 3200,
+      currency: "USD",
+      issueDate: "2026-05-18",
+      dueDate: "2026-06-10",
+      duplicateOf: "INV-1041",
+      duplicateReason: "Same amount, vendor, and line items within 30 days",
+    },
+  },
+  {
+    id: "INV-1059",
+    vendorId: "VENDOR-005",
+    amount: 7800,
+    currency: "USD",
+    purchaseOrderId: "PO-2024-0902",
+    status: "pending",
+    dueDate: "2026-06-25",
+    extractedFields: {
+      invoiceNumber: "INV-1059",
+      vendorName: "Tailspin Tax Services",
+      amount: 7800,
+      currency: "USD",
+      issueDate: "2026-05-25",
+      dueDate: "2026-06-25",
+      purchaseOrderRef: "PO-2024-0902",
+      taxExemptionCert: "missing",
+      exemptionReason: "Pending renewal",
+    },
+  },
+  {
+    id: "INV-1062",
+    vendorId: "VENDOR-004",
+    amount: 5400,
+    currency: "USD",
+    purchaseOrderId: "PO-2024-0905",
+    status: "blocked",
+    dueDate: "2026-06-30",
+    extractedFields: {
+      invoiceNumber: "INV-1062",
+      vendorName: "Woodgrove Logistics",
+      amount: 5400,
+      currency: "USD",
+      issueDate: "2026-05-28",
+      dueDate: "2026-06-30",
+      purchaseOrderRef: "PO-2024-0905",
+      bankAccountChanged: true,
+      bankChangeDate: "2026-05-30",
+      vendorStatus: "inactive",
+      w9Status: "expired",
+      insuranceStatus: "missing",
+    },
+  },
+];
+
+export function getInvoiceById(id: string): Invoice | undefined {
+  return invoices.find((i) => i.id === id);
+}
+
+export function getInvoicesByVendor(vendorId: string): Invoice[] {
+  return invoices.filter((i) => i.vendorId === vendorId);
+}

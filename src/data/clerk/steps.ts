@@ -1,0 +1,126 @@
+import { WorkflowStep } from "@/lib/types";
+
+export const steps: WorkflowStep[] = [
+  {
+    id: "STEP-001",
+    taskId: "TASK-1048",
+    order: 1,
+    title: "Open LedgerLite ERP",
+    description: "Navigate to the LedgerLite ERP admin portal",
+    state: "completed",
+    browserTarget: "https://erp.ledgerlite.internal/admin",
+    expectedResult: "ERP dashboard loaded",
+    auditEventIds: ["AUDIT-001"],
+  },
+  {
+    id: "STEP-002",
+    taskId: "TASK-1048",
+    order: 2,
+    title: "Search vendor: Northwind Packaging",
+    description: "Search for vendor by name in the vendor directory",
+    state: "completed",
+    browserTarget: "input#vendor-search",
+    expectedResult: "Northwind Packaging found in vendor list",
+    auditEventIds: ["AUDIT-002"],
+  },
+  {
+    id: "STEP-003",
+    taskId: "TASK-1048",
+    order: 3,
+    title: "Open invoice INV-1048",
+    description: "Navigate to invoice detail view",
+    state: "completed",
+    browserTarget: "a[href*='INV-1048']",
+    expectedResult: "Invoice detail page loaded",
+    auditEventIds: ["AUDIT-003"],
+  },
+  {
+    id: "STEP-004",
+    taskId: "TASK-1048",
+    order: 4,
+    title: "Compare invoice with PO",
+    description: "Verify invoice amount matches purchase order PO-2024-0891",
+    state: "completed",
+    browserTarget: "div#po-comparison",
+    expectedResult: "Amount matches: $4,860",
+    policyIds: ["POL-001"],
+    auditEventIds: ["AUDIT-004"],
+  },
+  {
+    id: "STEP-005",
+    taskId: "TASK-1048",
+    order: 5,
+    title: "Verify vendor tax ID",
+    description: "Confirm vendor tax ID matches records",
+    state: "completed",
+    browserTarget: "span#vendor-tax-id",
+    expectedResult: "Tax ID verified: 12-3456789",
+    auditEventIds: ["AUDIT-005"],
+  },
+  {
+    id: "STEP-006",
+    taskId: "TASK-1048",
+    order: 6,
+    title: "Detect bank account change",
+    description: "Check if vendor bank account was changed recently",
+    state: "completed",
+    browserTarget: "div#bank-change-alert",
+    expectedResult: "Bank change detected: 2026-05-28 (4 days ago)",
+    policyIds: ["POL-003"],
+    auditEventIds: ["AUDIT-006", "AUDIT-007"],
+  },
+  {
+    id: "STEP-007",
+    taskId: "TASK-1048",
+    order: 7,
+    title: "Prepare payment update",
+    description: "Fill in payment details form with verified information",
+    state: "completed",
+    browserTarget: "form#payment-details",
+    expectedResult: "Form prepared with current vendor bank details",
+    auditEventIds: ["AUDIT-008"],
+  },
+  {
+    id: "STEP-008",
+    taskId: "TASK-1048",
+    order: 8,
+    title: "Request Finance approval",
+    description: "Bank account change requires Finance Manager approval before submission",
+    state: "waiting_approval",
+    browserTarget: "button#submit-payment",
+    expectedResult: "Approval request sent to Finance Manager",
+    policyIds: ["POL-003"],
+    auditEventIds: ["AUDIT-009", "AUDIT-010"],
+  },
+  {
+    id: "STEP-009",
+    taskId: "TASK-1048",
+    order: 9,
+    title: "Submit after approval",
+    description: "Simulate submit only after Finance Manager approval is received",
+    state: "pending",
+    browserTarget: "button#submit-payment",
+    expectedResult: "Simulated submit completed",
+    auditEventIds: [],
+  },
+  {
+    id: "STEP-010",
+    taskId: "TASK-1048",
+    order: 10,
+    title: "Record session audit",
+    description: "Generate audit trail and session recording",
+    state: "pending",
+    expectedResult: "Audit trail and replay frames generated",
+    auditEventIds: [],
+  },
+];
+
+export function getStepById(id: string): WorkflowStep | undefined {
+  return steps.find((s) => s.id === id);
+}
+
+export function getStepsForTask(taskId: string): WorkflowStep[] {
+  return steps
+    .filter((s) => s.taskId === taskId)
+    .sort((a, b) => a.order - b.order);
+}
