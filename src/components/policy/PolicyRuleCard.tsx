@@ -25,25 +25,25 @@ export function PolicyRuleCard({
   return (
     <button
       onClick={() => onSelect?.(policy.id)}
-      className={`w-full text-left bg-[var(--color-bg-elevated)] border rounded-lg p-4 transition-all ${
+      className={`w-full text-left bg-[var(--color-surface-elevated)] border rounded-lg p-4 transition-all ${
         isSelected
-          ? "border-[var(--color-action)] ring-1 ring-[var(--color-action)]"
-          : "border-[var(--color-border)] hover:border-[var(--color-border-strong)]"
+          ? "border-[var(--color-accent)] ring-1 ring-[var(--color-accent)]"
+          : "border-[var(--color-rule)] hover:border-[var(--color-rule-strong)]"
       }`}
     >
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
-          <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+          <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
             {policy.id}
           </span>
-          <h3 className="text-sm font-medium text-[var(--color-text)] mt-0.5">
+          <h3 className="text-sm font-medium text-[var(--color-ink)] mt-0.5">
             {policy.title}
           </h3>
         </div>
         <PolicyBadge outcome={policy.outcome} />
       </div>
 
-      <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">
+      <p className="text-xs text-[var(--color-ink-secondary)] leading-relaxed mb-3">
         {policy.description}
       </p>
 
@@ -51,7 +51,7 @@ export function PolicyRuleCard({
         {policy.appliesToTaskTypes.map((type) => (
           <span
             key={type}
-            className="text-[10px] px-1.5 py-0.5 bg-[var(--color-bg-sunken)] text-[var(--color-text-subtle)] rounded"
+            className="text-[10px] px-1.5 py-0.5 bg-[var(--color-surface-sunken)] text-[var(--color-ink-tertiary)] rounded"
           >
             {taskTypeLabels[type] || type}
           </span>

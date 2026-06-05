@@ -1,4 +1,12 @@
 import { AuditEvent, AuditEventType } from "@/lib/types";
+import {
+  ClipboardText,
+  Browsers,
+  ListChecks,
+  CheckCircle,
+  Prohibit,
+  ArrowSquareOut,
+} from "@phosphor-icons/react/dist/ssr";
 
 interface AuditTimelineProps {
   events: AuditEvent[];
@@ -6,15 +14,21 @@ interface AuditTimelineProps {
 
 const eventTypeConfig: Record<
   AuditEventType,
-  { icon: string; className: string }
+  { icon: React.ElementType; className: string }
 > = {
-  task: { icon: "☰", className: "text-[var(--color-text-subtle)]" },
-  browser_action: { icon: "⊞", className: "text-[var(--color-action)]" },
-  field_extraction: { icon: "⊟", className: "text-[var(--color-info)]" },
-  policy_check: { icon: "⊘", className: "text-[var(--color-approval)]" },
-  approval: { icon: "⊙", className: "text-[var(--color-approval)]" },
-  blocked_action: { icon: "⊘", className: "text-[var(--color-blocked)]" },
-  simulated_submit: { icon: "✓", className: "text-[var(--color-approved)]" },
+  task: { icon: ClipboardText, className: "text-[var(--color-ink-tertiary)]" },
+  browser_action: { icon: Browsers, className: "text-[var(--color-accent)]" },
+  field_extraction: {
+    icon: ClipboardText,
+    className: "text-[var(--color-info)]",
+  },
+  policy_check: { icon: ListChecks, className: "text-[var(--color-approval)]" },
+  approval: { icon: CheckCircle, className: "text-[var(--color-approval)]" },
+  blocked_action: { icon: Prohibit, className: "text-[var(--color-blocked)]" },
+  simulated_submit: {
+    icon: ArrowSquareOut,
+    className: "text-[var(--color-approved)]",
+  },
 };
 
 const actorLabels: Record<string, string> = {
@@ -25,33 +39,36 @@ const actorLabels: Record<string, string> = {
 
 export function AuditTimeline({ events }: AuditTimelineProps) {
   return (
-    <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg overflow-hidden">
-      <div className="px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-sunken)]">
-        <h3 className="text-xs font-semibold text-[var(--color-text)]">
+    <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden">
+      <div className="px-4 py-3 border-b border-[var(--color-rule)] bg-[var(--color-surface-sunken)]">
+        <h3 className="text-[11px] font-semibold text-[var(--color-ink)] tracking-tight uppercase">
           Audit Events
-          <span className="text-[var(--color-text-subtle)] ml-2 font-normal">
-            {events.length} events
+          <span className="text-[var(--color-ink-ghost)] ml-2 font-normal normal-case">
+            {events.length}
           </span>
         </h3>
       </div>
-      
+
       <div className="max-h-64 overflow-y-auto">
-        <div className="divide-y divide-[var(--color-border)]">
+        <div className="divide-y divide-[var(--color-rule)]">
           {events.map((event) => {
             const config = eventTypeConfig[event.type];
+            const Icon = config.icon;
             const time = new Date(event.timestamp);
-            
+
             return (
-              <div key={event.id} className="px-4 py-2 flex items-start gap-3">
-                <span className={`text-xs mt-0.5 ${config.className}`}>
-                  {config.icon}
-                </span>
+              <div key={event.id} className="px-4 py-2.5 flex items-start gap-2.5">
+                <Icon
+                  size={13}
+                  weight="regular"
+                  className={`mt-0.5 shrink-0 ${config.className}`}
+                />
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-[var(--color-text)] font-medium truncate">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[12px] text-[var(--color-ink)] font-medium truncate">
                       {event.title}
                     </span>
-                    <span className="text-[10px] font-mono text-[var(--color-text-subtle)] ml-2 flex-shrink-0">
+                    <span className="text-[9px] font-mono text-[var(--color-ink-ghost)] shrink-0">
                       {time.toLocaleTimeString("en-US", {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -59,11 +76,11 @@ export function AuditTimeline({ events }: AuditTimelineProps) {
                       })}
                     </span>
                   </div>
-                  <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5 truncate">
+                  <p className="text-[11px] text-[var(--color-ink-secondary)] mt-0.5 truncate">
                     {event.detail}
                   </p>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-[9px] px-1 py-0.5 bg-[var(--color-bg-sunken)] rounded text-[var(--color-text-subtle)]">
+                  <div className="flex items-center gap-1.5 mt-1">
+                    <span className="text-[9px] px-1 py-0.5 bg-[var(--color-surface-sunken)] rounded text-[var(--color-ink-ghost)]">
                       {actorLabels[event.actor]}
                     </span>
                     {event.policyId && (

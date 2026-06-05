@@ -1,17 +1,31 @@
+import { Warning } from "@phosphor-icons/react/dist/ssr";
+
 interface DisclosureProps {
   variant?: "banner" | "inline" | "footer";
   className?: string;
 }
 
-export function Disclosure({ variant = "banner", className = "" }: DisclosureProps) {
-  const content = "Synthetic demo · Simulated browser actions · No real systems connected · No real credentials · No real financial transactions";
+export function Disclosure({
+  variant = "banner",
+  className = "",
+}: DisclosureProps) {
+  const content =
+    "Synthetic demo. Simulated browser actions. No real systems connected.";
 
   if (variant === "banner") {
     return (
-      <div className={`bg-[var(--color-warning-bg)] border border-amber-200 rounded-md px-4 py-3 ${className}`}>
-        <div className="flex items-start gap-3">
-          <span className="text-amber-600 text-sm mt-0.5">⚠</span>
-          <p className="text-xs text-amber-800 leading-relaxed">{content}</p>
+      <div
+        className={`bg-[var(--color-warning-bg)] border border-[var(--color-warning)]/15 rounded-[var(--radius-lg)] px-4 py-3 ${className}`}
+      >
+        <div className="flex items-start gap-2.5">
+          <Warning
+            size={15}
+            weight="fill"
+            className="text-[var(--color-warning)] mt-0.5 shrink-0"
+          />
+          <p className="text-xs text-[var(--color-warning)] leading-relaxed">
+            {content}
+          </p>
         </div>
       </div>
     );
@@ -19,16 +33,19 @@ export function Disclosure({ variant = "banner", className = "" }: DisclosurePro
 
   if (variant === "inline") {
     return (
-      <span className={`text-[10px] text-[var(--color-text-subtle)] italic ${className}`}>
+      <span
+        className={`text-[11px] text-[var(--color-ink-ghost)] font-mono ${className}`}
+      >
         {content}
       </span>
     );
   }
 
-  // footer variant
   return (
-    <div className={`bg-[var(--color-bg-sunken)] border-t border-[var(--color-border)] px-6 py-4 ${className}`}>
-      <p className="text-[10px] text-[var(--color-text-subtle)] text-center leading-relaxed">
+    <div
+      className={`bg-[var(--color-surface-sunken)] border-t border-[var(--color-rule)] px-6 py-4 ${className}`}
+    >
+      <p className="text-[11px] text-[var(--color-ink-ghost)] text-center font-mono">
         {content}
       </p>
     </div>

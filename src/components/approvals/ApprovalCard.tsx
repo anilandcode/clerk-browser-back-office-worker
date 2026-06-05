@@ -34,12 +34,12 @@ export function ApprovalCard({
   const statusConfig = statusLabels[approval.status];
 
   return (
-    <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl overflow-hidden">
+    <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl overflow-hidden">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-[var(--color-border)] flex items-center justify-between">
+      <div className="px-5 py-4 border-b border-[var(--color-rule)] flex items-center justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-[var(--color-text-subtle)]">
+            <span className="text-xs font-mono text-[var(--color-ink-tertiary)]">
               {approval.id}
             </span>
             <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${statusConfig.className}`}>
@@ -47,15 +47,15 @@ export function ApprovalCard({
             </span>
           </div>
           {task && (
-            <h3 className="text-sm font-medium text-[var(--color-text)] mt-1">
+            <h3 className="text-sm font-medium text-[var(--color-ink)] mt-1">
               {task.title}
-              <span className="text-[var(--color-text-subtle)] ml-2 font-mono text-xs">
+              <span className="text-[var(--color-ink-tertiary)] ml-2 font-mono text-xs">
                 {task.id}
               </span>
             </h3>
           )}
         </div>
-        <span className="text-[10px] text-[var(--color-text-subtle)]">
+        <span className="text-[10px] text-[var(--color-ink-tertiary)]">
           {roleLabels[approval.requiredApproverRole]}
         </span>
       </div>
@@ -63,34 +63,34 @@ export function ApprovalCard({
       {/* Body */}
       <div className="px-5 py-4 space-y-4">
         <div>
-          <h4 className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider mb-1.5">
+          <h4 className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider mb-1.5">
             Reason
           </h4>
-          <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+          <p className="text-xs text-[var(--color-ink-secondary)] leading-relaxed">
             {approval.reason}
           </p>
         </div>
 
         {task && (
           <div>
-            <h4 className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider mb-1.5">
+            <h4 className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider mb-1.5">
               Prepared Action
             </h4>
-            <p className="text-xs text-[var(--color-text-muted)]">
+            <p className="text-xs text-[var(--color-ink-secondary)]">
               {task.instruction}
             </p>
           </div>
         )}
 
         <div>
-          <h4 className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider mb-1.5">
+          <h4 className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider mb-1.5">
             Evidence
           </h4>
           <ul className="space-y-1">
             {approval.evidence.map((item, idx) => (
               <li
                 key={idx}
-                className="text-xs text-[var(--color-text-muted)] flex items-start gap-2"
+                className="text-xs text-[var(--color-ink-secondary)] flex items-start gap-2"
               >
                 <span className="text-[var(--color-approved)] mt-0.5">✓</span>
                 {item}
@@ -102,7 +102,7 @@ export function ApprovalCard({
 
       {/* Actions */}
       {approval.status === "pending" && (
-        <div className="px-5 py-4 border-t border-[var(--color-border)] bg-[var(--color-bg-sunken)] flex items-center gap-3">
+        <div className="px-5 py-4 border-t border-[var(--color-rule)] bg-[var(--color-surface-sunken)] flex items-center gap-3">
           <Button
             size="sm"
             onClick={() => onApprove?.(approval.id)}

@@ -35,8 +35,8 @@ export default function LegacyPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--color-text)]">LedgerLite ERP</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-1">
+          <h1 className="text-2xl font-bold text-[var(--color-ink)]">LedgerLite ERP</h1>
+          <p className="text-sm text-[var(--color-ink-secondary)] mt-1">
             Synthetic legacy vendor admin portal — for demonstration only
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function LegacyPage() {
             onClick={() => setActiveTab("search")}
             className={`px-3 py-1.5 text-xs rounded ${
               activeTab === "search"
-                ? "bg-white shadow-sm text-[var(--color-text)]"
+                ? "bg-white shadow-sm text-[var(--color-ink)]"
                 : "text-[#666] hover:bg-[#D0CECC]"
             }`}
           >
@@ -61,7 +61,7 @@ export default function LegacyPage() {
               onClick={() => setActiveTab("vendor")}
               className={`px-3 py-1.5 text-xs rounded ${
                 activeTab === "vendor"
-                  ? "bg-white shadow-sm text-[var(--color-text)]"
+                  ? "bg-white shadow-sm text-[var(--color-ink)]"
                   : "text-[#666] hover:bg-[#D0CECC]"
               }`}
             >
@@ -73,7 +73,7 @@ export default function LegacyPage() {
               onClick={() => setActiveTab("invoice")}
               className={`px-3 py-1.5 text-xs rounded ${
                 activeTab === "invoice"
-                  ? "bg-white shadow-sm text-[var(--color-text)]"
+                  ? "bg-white shadow-sm text-[var(--color-ink)]"
                   : "text-[#666] hover:bg-[#D0CECC]"
               }`}
             >
@@ -85,7 +85,7 @@ export default function LegacyPage() {
               onClick={() => setActiveTab("payment")}
               className={`px-3 py-1.5 text-xs rounded ${
                 activeTab === "payment"
-                  ? "bg-white shadow-sm text-[var(--color-text)]"
+                  ? "bg-white shadow-sm text-[var(--color-ink)]"
                   : "text-[#666] hover:bg-[#D0CECC]"
               }`}
             >

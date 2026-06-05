@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clerk — Browser Back-Office Worker",
-  description: "A supervised browser worker for repetitive legacy workflows with approvals, policy checks, and audit trails.",
+  title: "Clerk - Browser Back-Office Worker",
+  description:
+    "A supervised browser worker for repetitive legacy workflows with approvals, policy checks, and audit trails.",
 };
 
 export default function RootLayout({
@@ -26,12 +27,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex">
+      <body className="min-h-[100dvh] flex bg-[var(--color-surface)]">
+        <div className="noise-overlay" aria-hidden="true" />
         <Sidebar />
-        <main className="flex-1 lg:ml-64 min-h-screen bg-[var(--color-bg)] pt-14 lg:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <main className="flex-1 lg:ml-60 min-h-[100dvh]">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-8 lg:py-10">
             {children}
           </div>
         </main>

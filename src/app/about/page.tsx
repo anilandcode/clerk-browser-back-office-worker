@@ -6,16 +6,16 @@ export default function AboutPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">About Clerk</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">
+        <h1 className="text-xl font-semibold text-[var(--color-ink)] tracking-tight">About Clerk</h1>
+        <p className="text-[13px] text-[var(--color-ink-secondary)] mt-0.5">
           Case study: Browser back-office worker with approvals and audit trails
         </p>
       </div>
 
       {/* Problem */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Problem</h2>
-        <div className="space-y-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Problem</h2>
+        <div className="space-y-3 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
           <p>
             Enterprise operations teams spend significant time on repetitive back-office tasks: 
             processing vendor invoices, updating records in legacy ERP systems, verifying data 
@@ -30,9 +30,9 @@ export default function AboutPage() {
       </section>
 
       {/* Product Concept */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Product Concept</h2>
-        <div className="space-y-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Product Concept</h2>
+        <div className="space-y-3 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
           <p>
             Clerk is a supervised browser worker that performs narrow, repetitive operations 
             with visible state, approvals, and auditability. It is not an autonomous agent 
@@ -47,14 +47,14 @@ export default function AboutPage() {
       </section>
 
       {/* Primary Workflow */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Primary Workflow</h2>
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Primary Workflow</h2>
         <div className="space-y-4">
-          <div className="bg-[var(--color-bg-sunken)] rounded-lg p-4">
-            <h3 className="text-xs font-medium text-[var(--color-text)] mb-2">
+          <div className="bg-[var(--color-surface-sunken)] rounded-lg p-4">
+            <h3 className="text-xs font-medium text-[var(--color-ink)] mb-2">
               Vendor Invoice Intake and ERP Record Update
             </h3>
-            <div className="grid grid-cols-2 gap-4 text-[10px] text-[var(--color-text-muted)]">
+            <div className="grid grid-cols-2 gap-4 text-[10px] text-[var(--color-ink-secondary)]">
               <div>
                 <p><strong>Company:</strong> Apex Office Supply</p>
                 <p><strong>Worker Role:</strong> Accounts Operations Clerk</p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="text-xs text-[var(--color-text-muted)]">
+          <div className="text-xs text-[var(--color-ink-secondary)]">
             <p>
               <strong>Issue:</strong> Purchase order matches, but bank account changed recently. 
               Clerk may prepare the ERP update but must stop for Finance approval before 
@@ -78,12 +78,12 @@ export default function AboutPage() {
       </section>
 
       {/* What I Built */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">What I Built</h2>
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">What I Built</h2>
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <h3 className="text-xs font-medium text-[var(--color-text)]">Core Features</h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <h3 className="text-xs font-medium text-[var(--color-ink)]">Core Features</h3>
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li className="flex items-start gap-2">
                 <span className="text-[var(--color-approved)]">✓</span>
                 Synthetic work queue with 5 tasks
@@ -119,8 +119,8 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h3 className="text-xs font-medium text-[var(--color-text)]">Technical Stack</h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <h3 className="text-xs font-medium text-[var(--color-ink)]">Technical Stack</h3>
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li>Next.js 14 with App Router</li>
               <li>TypeScript for type safety</li>
               <li>Tailwind CSS for styling</li>
@@ -135,11 +135,11 @@ export default function AboutPage() {
       </section>
 
       {/* How Clerk Differs */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">
           How Clerk Differs from Generic RPA or Autonomous Agents
         </h2>
-        <div className="space-y-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+        <div className="space-y-3 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
           <p>
             <strong>Generic RPA:</strong> Often a black box that clicks through screens with 
             no visibility into decision-making, policy checks, or audit trails. Difficult to 
@@ -159,11 +159,11 @@ export default function AboutPage() {
       </section>
 
       {/* Architecture Challenge */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">
           Architecture Challenge
         </h2>
-        <div className="space-y-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+        <div className="space-y-3 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
           <p>
             The primary challenge was building a deterministic demo that demonstrates the 
             architecture without requiring real browser automation, external systems, or 
@@ -184,12 +184,12 @@ export default function AboutPage() {
       </section>
 
       {/* Safety Model */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Safety Model</h2>
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Safety Model</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h3 className="text-xs font-medium text-[var(--color-text)] mb-2">Guarantees</h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <h3 className="text-xs font-medium text-[var(--color-ink)] mb-2">Guarantees</h3>
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li>• No real websites accessed</li>
               <li>• No real credentials used</li>
               <li>• No real financial transactions</li>
@@ -199,8 +199,8 @@ export default function AboutPage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xs font-medium text-[var(--color-text)] mb-2">Controls</h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <h3 className="text-xs font-medium text-[var(--color-ink)] mb-2">Controls</h3>
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li>• Policy engine gates all actions</li>
               <li>• Approval required for high-risk</li>
               <li>• Blocked actions cannot proceed</li>
@@ -213,9 +213,9 @@ export default function AboutPage() {
       </section>
 
       {/* Evaluation */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Evaluation</h2>
-        <div className="space-y-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Evaluation</h2>
+        <div className="space-y-3 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
           <p>
             The eval harness includes 60 deterministic test cases across 8 categories: 
             task classification, field extraction, policy triggering, approval gates, 
@@ -229,9 +229,9 @@ export default function AboutPage() {
       </section>
 
       {/* Limitations */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">Limitations</h2>
-        <ul className="space-y-2 text-xs text-[var(--color-text-muted)]">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">Limitations</h2>
+        <ul className="space-y-2 text-xs text-[var(--color-ink-secondary)]">
           <li className="flex items-start gap-2">
             <span className="text-[var(--color-warning)]">•</span>
             Synthetic demo only — no real browser automation
@@ -260,11 +260,11 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6 text-center">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-3">
+      <section className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6 text-center">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-3">
           Discuss a Back-Office AI Workflow
         </h2>
-        <p className="text-xs text-[var(--color-text-muted)] mb-4">
+        <p className="text-xs text-[var(--color-ink-secondary)] mb-4">
           Interested in how browser automation with policy checks and approval gates 
           could work for your operations team?
         </p>

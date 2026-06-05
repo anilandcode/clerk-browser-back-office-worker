@@ -34,31 +34,31 @@ export default function ArchitecturePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">Architecture</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">
+        <h1 className="text-xl font-semibold text-[var(--color-ink)] tracking-tight">Architecture</h1>
+        <p className="text-[13px] text-[var(--color-ink-secondary)] mt-0.5">
           System design and workflow explanation
         </p>
       </div>
 
       {/* System Flow Diagram */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-6">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-6">
           System Flow
         </h2>
         <div className="space-y-3">
           {systemFlow.map((component, idx) => (
             <div key={component.label}>
               <div className="flex items-center gap-4">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-bg-sunken)] border border-[var(--color-border)] flex items-center justify-center text-xs font-mono text-[var(--color-text-subtle)]">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-rule)] flex items-center justify-center text-xs font-mono text-[var(--color-ink-tertiary)]">
                   {idx + 1}
                 </div>
-                <div className="flex-1 bg-[var(--color-bg-sunken)] rounded-lg px-4 py-3">
+                <div className="flex-1 bg-[var(--color-surface-sunken)] rounded-lg px-4 py-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-sm font-medium text-[var(--color-text)]">
+                      <h3 className="text-sm font-medium text-[var(--color-ink)]">
                         {component.label}
                       </h3>
-                      <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">
+                      <p className="text-[10px] text-[var(--color-ink-secondary)] mt-0.5">
                         {component.description}
                       </p>
                     </div>
@@ -73,7 +73,7 @@ export default function ArchitecturePage() {
                 </div>
               </div>
               {idx < systemFlow.length - 1 && (
-                <div className="ml-4 h-4 w-px bg-[var(--color-border)]" />
+                <div className="ml-4 h-4 w-px bg-[var(--color-rule)]" />
               )}
             </div>
           ))}
@@ -81,8 +81,8 @@ export default function ArchitecturePage() {
       </div>
 
       {/* Status Legend */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-4">
           Status Labels
         </h2>
         <div className="flex items-center gap-4">
@@ -97,13 +97,13 @@ export default function ArchitecturePage() {
       </div>
 
       {/* Current Implementation */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-4">
           Current Implementation (Public Demo)
         </h2>
-        <div className="grid grid-cols-2 gap-4 text-xs text-[var(--color-text-muted)]">
+        <div className="grid grid-cols-2 gap-4 text-xs text-[var(--color-ink-secondary)]">
           <div className="space-y-2">
-            <h3 className="font-medium text-[var(--color-text)]">What is implemented:</h3>
+            <h3 className="font-medium text-[var(--color-ink)]">What is implemented:</h3>
             <ul className="space-y-1">
               <li className="flex items-start gap-2">
                 <span className="text-[var(--color-approved)]">✓</span>
@@ -132,7 +132,7 @@ export default function ArchitecturePage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h3 className="font-medium text-[var(--color-text)]">What is simulated:</h3>
+            <h3 className="font-medium text-[var(--color-ink)]">What is simulated:</h3>
             <ul className="space-y-1">
               <li className="flex items-start gap-2">
                 <span className="text-[var(--color-warning)]">~</span>
@@ -156,11 +156,11 @@ export default function ArchitecturePage() {
       </div>
 
       {/* Future / Protected Mode */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-4">
           Future / Protected Mode
         </h2>
-        <p className="text-xs text-[var(--color-text-muted)] mb-4">
+        <p className="text-xs text-[var(--color-ink-secondary)] mb-4">
           These components are not implemented in the public demo. They represent potential 
           extensions for production use behind environment flags.
         </p>
@@ -168,14 +168,14 @@ export default function ArchitecturePage() {
           {futureComponents.map((component) => (
             <div
               key={component.label}
-              className="bg-[var(--color-bg-sunken)] border border-[var(--color-border)] rounded-lg px-4 py-3"
+              className="bg-[var(--color-surface-sunken)] border border-[var(--color-rule)] rounded-lg px-4 py-3"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xs font-medium text-[var(--color-text)]">
+                  <h3 className="text-xs font-medium text-[var(--color-ink)]">
                     {component.label}
                   </h3>
-                  <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">
+                  <p className="text-[10px] text-[var(--color-ink-secondary)] mt-0.5">
                     {component.description}
                   </p>
                 </div>
@@ -189,12 +189,12 @@ export default function ArchitecturePage() {
       </div>
 
       {/* Environment Flags */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-4">
           Environment Flags (Not Implemented)
         </h2>
-        <div className="bg-[var(--color-bg-sunken)] rounded-lg p-4 font-mono text-xs">
-          <div className="space-y-1 text-[var(--color-text-muted)]">
+        <div className="bg-[var(--color-surface-sunken)] rounded-lg p-4 font-mono text-xs">
+          <div className="space-y-1 text-[var(--color-ink-secondary)]">
             <p>DEMO_MODE=true</p>
             <p>LIVE_BROWSER_MODE=false</p>
             <p>LIVE_COMPUTER_USE_MODE=false</p>
@@ -202,23 +202,23 @@ export default function ArchitecturePage() {
             <p>SESSION_RECORDING_MODE=simulated</p>
           </div>
         </div>
-        <p className="text-[10px] text-[var(--color-text-subtle)] mt-2">
+        <p className="text-[10px] text-[var(--color-ink-tertiary)] mt-2">
           These flags are not implemented in the current build. They represent the separation 
           between public demo and potential protected production mode.
         </p>
       </div>
 
       {/* Safety Model */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-[var(--color-text)] mb-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl p-6">
+        <h2 className="text-sm font-semibold text-[var(--color-ink)] mb-4">
           Safety Model
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h3 className="text-xs font-medium text-[var(--color-text)] mb-2">
+            <h3 className="text-xs font-medium text-[var(--color-ink)] mb-2">
               Guarantees
             </h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li className="flex items-start gap-2">
                 <span className="text-[var(--color-approved)]">✓</span>
                 No real websites accessed
@@ -242,28 +242,28 @@ export default function ArchitecturePage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xs font-medium text-[var(--color-text)] mb-2">
+            <h3 className="text-xs font-medium text-[var(--color-ink)] mb-2">
               Controls
             </h3>
-            <ul className="space-y-1 text-[10px] text-[var(--color-text-muted)]">
+            <ul className="space-y-1 text-[10px] text-[var(--color-ink-secondary)]">
               <li className="flex items-start gap-2">
-                <span className="text-[var(--color-action)]">→</span>
+                <span className="text-[var(--color-accent)]">→</span>
                 Policy engine gates all actions
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--color-action)]">→</span>
+                <span className="text-[var(--color-accent)]">→</span>
                 Approval required for high-risk
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--color-action)]">→</span>
+                <span className="text-[var(--color-accent)]">→</span>
                 Blocked actions cannot proceed
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--color-action)]">→</span>
+                <span className="text-[var(--color-accent)]">→</span>
                 Audit trail captures everything
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--color-action)]">→</span>
+                <span className="text-[var(--color-accent)]">→</span>
                 Eval harness validates behavior
               </li>
             </ul>

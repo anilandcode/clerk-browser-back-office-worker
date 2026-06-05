@@ -29,7 +29,7 @@ export function VendorSearchForm({ onSelect }: VendorSearchFormProps) {
   return (
     <div className="bg-white border border-[#D0CECC] rounded">
       <div className="px-4 py-3 border-b border-[#D0CECC] bg-[#F8F8F8]">
-        <h3 className="text-xs font-semibold text-[var(--color-text)]">Vendor Search</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-ink)]">Vendor Search</h3>
       </div>
       
       <div className="p-4">

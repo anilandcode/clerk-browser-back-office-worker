@@ -22,14 +22,14 @@ export function TaskCard({ task }: TaskCardProps) {
   return (
     <Link
       href={`/workbench?task=${task.id}`}
-      className="block bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-4 hover:border-[var(--color-border-strong)] hover:shadow-sm transition-all"
+      className="block bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg p-4 hover:border-[var(--color-rule-strong)] hover:shadow-sm transition-all"
     >
       <div className="flex items-start justify-between mb-3">
         <div>
-          <span className="text-xs font-mono text-[var(--color-text-subtle)]">
+          <span className="text-xs font-mono text-[var(--color-ink-tertiary)]">
             {task.id}
           </span>
-          <h3 className="text-sm font-medium text-[var(--color-text)] mt-0.5">
+          <h3 className="text-sm font-medium text-[var(--color-ink)] mt-0.5">
             {task.title}
           </h3>
         </div>
@@ -38,37 +38,37 @@ export function TaskCard({ task }: TaskCardProps) {
 
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Type
           </span>
-          <span className="text-xs text-[var(--color-text-muted)]">
+          <span className="text-xs text-[var(--color-ink-secondary)]">
             {taskTypeLabels[task.type]}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Vendor
           </span>
-          <span className="text-xs text-[var(--color-text-muted)]">
+          <span className="text-xs text-[var(--color-ink-secondary)]">
             {vendor?.name || task.vendorId}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             System
           </span>
-          <span className="text-xs text-[var(--color-text-muted)] font-mono">
+          <span className="text-xs text-[var(--color-ink-secondary)] font-mono">
             {task.system}
           </span>
         </div>
 
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--color-border)]">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--color-rule)]">
           <RiskBadge risk={task.risk} />
           
           {task.invoiceId && (
-            <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+            <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
               {task.invoiceId}
             </span>
           )}

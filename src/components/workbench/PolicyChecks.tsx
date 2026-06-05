@@ -18,24 +18,24 @@ export function PolicyChecks({ policies }: PolicyChecksProps) {
   );
 
   return (
-    <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg overflow-hidden">
-      <div className="px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-sunken)]">
-        <h3 className="text-xs font-semibold text-[var(--color-text)]">Policy Checks</h3>
+    <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border-b border-[var(--color-rule)] bg-[var(--color-surface-sunken)]">
+        <h3 className="text-xs font-semibold text-[var(--color-ink)]">Policy Checks</h3>
       </div>
       
-      <div className="divide-y divide-[var(--color-border)]">
+      <div className="divide-y divide-[var(--color-rule)]">
         {sorted.map((policy) => (
           <div key={policy.id} className="px-4 py-2.5">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+              <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
                 {policy.id}
               </span>
               <PolicyBadge outcome={policy.outcome} />
             </div>
-            <p className="text-xs text-[var(--color-text)] font-medium">
+            <p className="text-xs text-[var(--color-ink)] font-medium">
               {policy.title}
             </p>
-            <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">
+            <p className="text-[10px] text-[var(--color-ink-secondary)] mt-0.5">
               {policy.trigger}
             </p>
           </div>

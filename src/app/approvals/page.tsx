@@ -56,8 +56,8 @@ export default function ApprovalsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">Approvals</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">
+        <h1 className="text-xl font-semibold text-[var(--color-ink)] tracking-tight">Approvals</h1>
+        <p className="text-[13px] text-[var(--color-ink-secondary)] mt-0.5">
           Human-in-the-loop approval management
         </p>
       </div>
@@ -70,8 +70,8 @@ export default function ApprovalsPage() {
             onClick={() => setFilter(statusFilter.value)}
             className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
               filter === statusFilter.value
-                ? "bg-[var(--color-text)] text-white"
-                : "bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] border border-[var(--color-border)] hover:bg-[var(--color-bg-sunken)]"
+                ? "bg-[var(--color-ink)] text-white"
+                : "bg-[var(--color-surface-elevated)] text-[var(--color-ink-secondary)] border border-[var(--color-rule)] hover:bg-[var(--color-surface-sunken)]"
             }`}
           >
             {statusFilter.label}
@@ -93,8 +93,8 @@ export default function ApprovalsPage() {
       </div>
 
       {filteredApprovals.length === 0 && (
-        <div className="bg-[var(--color-bg-elevated)] border border-dashed border-[var(--color-border)] rounded-xl p-12 text-center">
-          <p className="text-sm text-[var(--color-text-subtle)]">
+        <div className="bg-[var(--color-surface-elevated)] border border-dashed border-[var(--color-rule)] rounded-xl p-12 text-center">
+          <p className="text-sm text-[var(--color-ink-tertiary)]">
             No approvals matching filter
           </p>
         </div>

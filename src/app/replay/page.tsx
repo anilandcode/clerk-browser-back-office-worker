@@ -66,29 +66,29 @@ export default function ReplayPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">Session Replay</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">
+        <h1 className="text-xl font-semibold text-[var(--color-ink)] tracking-tight">Session Replay</h1>
+        <p className="text-[13px] text-[var(--color-ink-secondary)] mt-0.5">
           Deterministic frame-by-frame session recording
         </p>
       </div>
 
       {/* Task Info */}
       {task && (
-        <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg px-4 py-3 flex items-center justify-between">
+        <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg px-4 py-3 flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+            <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
               {task.id}
             </span>
-            <h3 className="text-sm font-medium text-[var(--color-text)]">{task.title}</h3>
+            <h3 className="text-sm font-medium text-[var(--color-ink)]">{task.title}</h3>
           </div>
-          <span className="text-xs text-[var(--color-text-muted)]">
+          <span className="text-xs text-[var(--color-ink-secondary)]">
             {frames.length} frames
           </span>
         </div>
       )}
 
       {/* Timeline */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-4">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg p-4">
         <div className="flex items-center gap-1">
           {frames.map((frame, idx) => (
             <button
@@ -96,37 +96,37 @@ export default function ReplayPage() {
               onClick={() => setSelectedFrameIndex(idx)}
               className={`flex-1 h-2 rounded-full transition-colors ${
                 idx === selectedFrameIndex
-                  ? "bg-[var(--color-action)]"
+                  ? "bg-[var(--color-accent)]"
                   : idx < selectedFrameIndex
                   ? "bg-[var(--color-approved)]"
-                  : "bg-[var(--color-border)]"
+                  : "bg-[var(--color-rule)]"
               }`}
             />
           ))}
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-[10px] text-[var(--color-text-subtle)]">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)]">
             Frame {selectedFrameIndex + 1} of {frames.length}
           </span>
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
               disabled={selectedFrameIndex === 0}
-              className="px-3 py-1 text-xs bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded disabled:opacity-50"
+              className="px-3 py-1 text-xs bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded disabled:opacity-50"
             >
               ← Prev
             </button>
             <button
               onClick={handlePlay}
               disabled={isPlaying || selectedFrameIndex === frames.length - 1}
-              className="px-3 py-1 text-xs bg-[var(--color-action)] text-white rounded disabled:opacity-50"
+              className="px-3 py-1 text-xs bg-[var(--color-accent)] text-white rounded disabled:opacity-50"
             >
               {isPlaying ? "Playing..." : "▶ Play"}
             </button>
             <button
               onClick={handleNext}
               disabled={selectedFrameIndex === frames.length - 1}
-              className="px-3 py-1 text-xs bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded disabled:opacity-50"
+              className="px-3 py-1 text-xs bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded disabled:opacity-50"
             >
               Next →
             </button>
@@ -136,19 +136,19 @@ export default function ReplayPage() {
 
       {/* Frame Viewer */}
       {selectedFrame && (
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Browser Frame Mock */}
-          <div className="col-span-8">
-            <div className="bg-[#E8E6E4] border border-[var(--color-border)] rounded-lg overflow-hidden">
+          <div className="lg:col-span-8">
+            <div className="bg-[#E8E6E4] border border-[var(--color-rule)] rounded-lg overflow-hidden">
               {/* Browser Chrome */}
               <div className="bg-[#D0CECC] px-3 py-2 flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
+                  <div className="w-[10px] h-[10px] rounded-full bg-[#FF5F56]" />
+                  <div className="w-[10px] h-[10px] rounded-full bg-[#FFBD2E]" />
+                  <div className="w-[10px] h-[10px] rounded-full bg-[#27C93F]" />
                 </div>
                 <div className="flex-1 bg-white rounded px-2 py-1">
-                  <span className="text-[10px] font-mono text-[var(--color-text-muted)]">
+                  <span className="text-[10px] font-mono text-[var(--color-ink-secondary)]">
                     erp.ledgerlite.internal/{selectedFrame.screen.replace(/_/g, "/")}
                   </span>
                 </div>
@@ -158,7 +158,7 @@ export default function ReplayPage() {
               <div className="bg-[#F5F3F0] p-6 min-h-[300px]">
                 <div className="bg-white border border-[#D0CECC] rounded p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-sm font-semibold text-[var(--color-text)]">
+                    <h2 className="text-sm font-semibold text-[var(--color-ink)]">
                       {screenLabels[selectedFrame.screen]}
                     </h2>
                     {selectedFrame.policyState && (
@@ -172,16 +172,16 @@ export default function ReplayPage() {
                     )}
                   </div>
 
-                  <p className="text-xs text-[var(--color-text-muted)] mb-4">
+                  <p className="text-xs text-[var(--color-ink-secondary)] mb-4">
                     {selectedFrame.action}
                   </p>
 
                   {/* Simulated Screen Content */}
-                  <div className="bg-[var(--color-bg-sunken)] rounded p-4 text-center">
-                    <p className="text-[10px] text-[var(--color-text-subtle)]">
+                  <div className="bg-[var(--color-surface-sunken)] rounded p-4 text-center">
+                    <p className="text-[10px] text-[var(--color-ink-tertiary)]">
                       Simulated {screenLabels[selectedFrame.screen]} screen
                     </p>
-                    <p className="text-[10px] text-[var(--color-text-subtle)] mt-1">
+                    <p className="text-[10px] text-[var(--color-ink-tertiary)] mt-1">
                       No real browser content
                     </p>
                   </div>
@@ -191,40 +191,40 @@ export default function ReplayPage() {
           </div>
 
           {/* Frame Details */}
-          <div className="col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             {/* Frame Info */}
-            <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-4">
-              <h3 className="text-xs font-semibold text-[var(--color-text)] mb-3">Frame Details</h3>
+            <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg p-4">
+              <h3 className="text-xs font-semibold text-[var(--color-ink)] mb-3">Frame Details</h3>
               <div className="space-y-3">
                 <div>
-                  <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+                  <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                     Frame
                   </span>
-                  <p className="text-xs font-mono text-[var(--color-text)]">
+                  <p className="text-xs font-mono text-[var(--color-ink)]">
                     {selectedFrame.id} (#{selectedFrame.order})
                   </p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+                  <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                     Timestamp
                   </span>
-                  <p className="text-xs font-mono text-[var(--color-text)]">
+                  <p className="text-xs font-mono text-[var(--color-ink)]">
                     {new Date(selectedFrame.timestamp).toLocaleTimeString()}
                   </p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+                  <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                     Screen
                   </span>
-                  <p className="text-xs text-[var(--color-text)]">
+                  <p className="text-xs text-[var(--color-ink)]">
                     {screenLabels[selectedFrame.screen]}
                   </p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+                  <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                     Action
                   </span>
-                  <p className="text-xs text-[var(--color-text-muted)]">
+                  <p className="text-xs text-[var(--color-ink-secondary)]">
                     {selectedFrame.action}
                   </p>
                 </div>
@@ -233,24 +233,24 @@ export default function ReplayPage() {
 
             {/* Linked Audit Event */}
             {frameAuditEvent && (
-              <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-4">
-                <h3 className="text-xs font-semibold text-[var(--color-text)] mb-3">
+              <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg p-4">
+                <h3 className="text-xs font-semibold text-[var(--color-ink)] mb-3">
                   Linked Audit Event
                 </h3>
                 <div className="space-y-2">
                   <div>
-                    <span className="text-[10px] text-[var(--color-text-subtle)]">ID</span>
-                    <p className="text-xs font-mono text-[var(--color-action)]">
+                    <span className="text-[10px] text-[var(--color-ink-tertiary)]">ID</span>
+                    <p className="text-xs font-mono text-[var(--color-accent)]">
                       {frameAuditEvent.id}
                     </p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-[var(--color-text-subtle)]">Title</span>
-                    <p className="text-xs text-[var(--color-text)]">{frameAuditEvent.title}</p>
+                    <span className="text-[10px] text-[var(--color-ink-tertiary)]">Title</span>
+                    <p className="text-xs text-[var(--color-ink)]">{frameAuditEvent.title}</p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-[var(--color-text-subtle)]">Detail</span>
-                    <p className="text-xs text-[var(--color-text-muted)]">
+                    <span className="text-[10px] text-[var(--color-ink-tertiary)]">Detail</span>
+                    <p className="text-xs text-[var(--color-ink-secondary)]">
                       {frameAuditEvent.detail}
                     </p>
                   </div>
@@ -262,27 +262,27 @@ export default function ReplayPage() {
       )}
 
       {/* All Frames List */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl overflow-hidden">
-        <div className="px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-sunken)]">
-          <h3 className="text-xs font-semibold text-[var(--color-text)]">All Replay Frames</h3>
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl overflow-hidden">
+        <div className="px-4 py-3 border-b border-[var(--color-rule)] bg-[var(--color-surface-sunken)]">
+          <h3 className="text-xs font-semibold text-[var(--color-ink)]">All Replay Frames</h3>
         </div>
-        <div className="divide-y divide-[var(--color-border)]">
+        <div className="divide-y divide-[var(--color-rule)]">
           {frames.map((frame, idx) => (
             <button
               key={frame.id}
               onClick={() => setSelectedFrameIndex(idx)}
-              className={`w-full px-4 py-3 text-left hover:bg-[var(--color-bg-sunken)] transition-colors ${
-                idx === selectedFrameIndex ? "bg-[var(--color-action-muted)]" : ""
+              className={`w-full px-4 py-3 text-left hover:bg-[var(--color-surface-sunken)] transition-colors ${
+                idx === selectedFrameIndex ? "bg-[var(--color-accent-muted)]" : ""
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-[var(--color-text-subtle)] w-6">
+                  <span className="text-xs font-mono text-[var(--color-ink-tertiary)] w-6">
                     {frame.order}
                   </span>
                   <div>
-                    <p className="text-xs font-medium text-[var(--color-text)]">{frame.title}</p>
-                    <p className="text-[10px] text-[var(--color-text-muted)]">{frame.action}</p>
+                    <p className="text-xs font-medium text-[var(--color-ink)]">{frame.title}</p>
+                    <p className="text-[10px] text-[var(--color-ink-secondary)]">{frame.action}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -295,7 +295,7 @@ export default function ReplayPage() {
                       {frame.policyState.replace(/_/g, " ")}
                     </span>
                   )}
-                  <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+                  <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
                     {new Date(frame.timestamp).toLocaleTimeString()}
                   </span>
                 </div>

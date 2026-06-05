@@ -14,7 +14,7 @@ export function InvoiceDetail({ invoice }: InvoiceDetailProps) {
   return (
     <div className="bg-white border border-[#D0CECC] rounded">
       <div className="px-4 py-3 border-b border-[#D0CECC] bg-[#F8F8F8] flex items-center justify-between">
-        <h3 className="text-xs font-semibold text-[var(--color-text)]">Invoice Detail</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-ink)]">Invoice Detail</h3>
         <span
           className={`text-[10px] px-1.5 py-0.5 rounded ${
             invoice.status === "matched"
@@ -66,7 +66,7 @@ export function InvoiceDetail({ invoice }: InvoiceDetailProps) {
             {Object.entries(invoice.extractedFields).map(([key, value]) => (
               <div key={key} className="flex items-center justify-between py-0.5 text-[10px]">
                 <span className="text-[#666]">{key.replace(/([A-Z])/g, " $1").trim()}</span>
-                <span className="font-mono text-[var(--color-text)]">
+                <span className="font-mono text-[var(--color-ink)]">
                   {typeof value === "boolean" ? (value ? "Yes" : "No") : String(value)}
                 </span>
               </div>

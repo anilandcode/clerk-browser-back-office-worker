@@ -46,8 +46,8 @@ export function QueueTable({ tasks }: QueueTableProps) {
             onClick={() => setStatusFilter(filter.value)}
             className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
               statusFilter === filter.value
-                ? "bg-[var(--color-text)] text-white"
-                : "bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] border border-[var(--color-border)] hover:bg-[var(--color-bg-sunken)]"
+                ? "bg-[var(--color-ink)] text-white"
+                : "bg-[var(--color-surface-elevated)] text-[var(--color-ink-secondary)] border border-[var(--color-rule)] hover:bg-[var(--color-surface-sunken)]"
             }`}
           >
             {filter.label}
@@ -56,35 +56,35 @@ export function QueueTable({ tasks }: QueueTableProps) {
       </div>
 
       {/* Table */}
-      <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-xl overflow-hidden">
+      <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-sunken)]">
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+              <tr className="border-b border-[var(--color-rule)] bg-[var(--color-surface-sunken)]">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   Task ID
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   Type
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   Vendor
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   System
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   Risk
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   SLA
                 </th>
-                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-text-subtle)] uppercase tracking-wider">
+                <th className="text-left px-4 py-3 text-[10px] font-medium text-[var(--color-ink-tertiary)] uppercase tracking-wider">
                   Status
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-border)]">
+            <tbody className="divide-y divide-[var(--color-rule)]">
               {filteredTasks.map((task) => {
                 const vendor = getVendorById(task.vendorId);
                 const slaDate = new Date(task.sla);
@@ -93,28 +93,28 @@ export function QueueTable({ tasks }: QueueTableProps) {
                 return (
                   <tr
                     key={task.id}
-                    className="hover:bg-[var(--color-bg-sunken)] transition-colors"
+                    className="hover:bg-[var(--color-surface-sunken)] transition-colors"
                   >
                     <td className="px-4 py-3">
                       <Link
                         href={`/workbench?task=${task.id}`}
-                        className="text-xs font-mono text-[var(--color-action)] hover:underline"
+                        className="text-xs font-mono text-[var(--color-accent)] hover:underline"
                       >
                         {task.id}
                       </Link>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-xs text-[var(--color-text)]">
+                      <span className="text-xs text-[var(--color-ink)]">
                         {taskTypeLabels[task.type]}
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-xs text-[var(--color-text-muted)]">
+                      <span className="text-xs text-[var(--color-ink-secondary)]">
                         {vendor?.name || task.vendorId}
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-xs font-mono text-[var(--color-text-subtle)]">
+                      <span className="text-xs font-mono text-[var(--color-ink-tertiary)]">
                         {task.system}
                       </span>
                     </td>
@@ -126,7 +126,7 @@ export function QueueTable({ tasks }: QueueTableProps) {
                         className={`text-xs ${
                           isOverdue
                             ? "text-[var(--color-blocked)] font-medium"
-                            : "text-[var(--color-text-muted)]"
+                            : "text-[var(--color-ink-secondary)]"
                         }`}
                       >
                         {slaDate.toLocaleDateString("en-US", {
@@ -147,7 +147,7 @@ export function QueueTable({ tasks }: QueueTableProps) {
 
         {filteredTasks.length === 0 && (
           <div className="px-4 py-8 text-center">
-            <p className="text-sm text-[var(--color-text-subtle)]">
+            <p className="text-sm text-[var(--color-ink-tertiary)]">
               No tasks matching filter
             </p>
           </div>
@@ -155,7 +155,7 @@ export function QueueTable({ tasks }: QueueTableProps) {
       </div>
 
       {/* Task count */}
-      <div className="mt-3 text-xs text-[var(--color-text-subtle)]">
+      <div className="mt-3 text-xs text-[var(--color-ink-tertiary)]">
         Showing {filteredTasks.length} of {tasks.length} tasks
       </div>
     </div>

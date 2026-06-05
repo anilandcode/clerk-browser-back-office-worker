@@ -33,7 +33,7 @@ export function LegacyLayout({ children, title }: LegacyLayoutProps) {
 
       {/* Tab Bar */}
       <div className="bg-[#E8E6E4] border-b border-[#D0CECC] px-6 flex items-center gap-0 text-[10px]">
-        <div className="px-3 py-1.5 bg-[#F5F3F0] border border-b-0 border-[#D0CECC] rounded-t text-[var(--color-text)] font-medium">
+        <div className="px-3 py-1.5 bg-[#F5F3F0] border border-b-0 border-[#D0CECC] rounded-t text-[var(--color-ink)] font-medium">
           {title || "Vendor Management"}
         </div>
       </div>

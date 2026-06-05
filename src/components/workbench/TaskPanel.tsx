@@ -21,38 +21,38 @@ export function TaskPanel({ task }: TaskPanelProps) {
   const invoice = task.invoiceId ? getInvoiceById(task.invoiceId) : null;
 
   return (
-    <div className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg overflow-hidden">
-      <div className="px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-bg-sunken)]">
+    <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-rule)] rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border-b border-[var(--color-rule)] bg-[var(--color-surface-sunken)]">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-mono text-[var(--color-text-subtle)]">
+          <span className="text-[10px] font-mono text-[var(--color-ink-tertiary)]">
             {task.id}
           </span>
           <StatusBadge status={task.status} />
         </div>
-        <h3 className="text-sm font-medium text-[var(--color-text)] mt-1">
+        <h3 className="text-sm font-medium text-[var(--color-ink)] mt-1">
           {task.title}
         </h3>
       </div>
 
       <div className="p-4 space-y-3">
         <div>
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Type
           </span>
-          <p className="text-xs text-[var(--color-text)] mt-0.5">
+          <p className="text-xs text-[var(--color-ink)] mt-0.5">
             {taskTypeLabels[task.type]}
           </p>
         </div>
 
         <div>
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Vendor
           </span>
-          <p className="text-xs text-[var(--color-text)] mt-0.5">
+          <p className="text-xs text-[var(--color-ink)] mt-0.5">
             {vendor?.name || task.vendorId}
           </p>
           {vendor && (
-            <p className="text-[10px] text-[var(--color-text-muted)]">
+            <p className="text-[10px] text-[var(--color-ink-secondary)]">
               Tax ID: {vendor.taxId} · Status: {vendor.status}
             </p>
           )}
@@ -60,20 +60,20 @@ export function TaskPanel({ task }: TaskPanelProps) {
 
         {invoice && (
           <div>
-            <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+            <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
               Invoice
             </span>
-            <p className="text-xs text-[var(--color-text)] mt-0.5">
+            <p className="text-xs text-[var(--color-ink)] mt-0.5">
               {invoice.id} — ${invoice.amount.toLocaleString()} {invoice.currency}
             </p>
-            <p className="text-[10px] text-[var(--color-text-muted)]">
+            <p className="text-[10px] text-[var(--color-ink-secondary)]">
               Due: {new Date(invoice.dueDate).toLocaleDateString()}
             </p>
           </div>
         )}
 
         <div>
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Risk Level
           </span>
           <div className="mt-1">
@@ -82,19 +82,19 @@ export function TaskPanel({ task }: TaskPanelProps) {
         </div>
 
         <div>
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             System
           </span>
-          <p className="text-xs font-mono text-[var(--color-text-muted)] mt-0.5">
+          <p className="text-xs font-mono text-[var(--color-ink-secondary)] mt-0.5">
             {task.system}
           </p>
         </div>
 
-        <div className="pt-3 border-t border-[var(--color-border)]">
-          <span className="text-[10px] text-[var(--color-text-subtle)] uppercase tracking-wider">
+        <div className="pt-3 border-t border-[var(--color-rule)]">
+          <span className="text-[10px] text-[var(--color-ink-tertiary)] uppercase tracking-wider">
             Instructions
           </span>
-          <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mt-1">
+          <p className="text-xs text-[var(--color-ink-secondary)] leading-relaxed mt-1">
             {task.instruction}
           </p>
         </div>

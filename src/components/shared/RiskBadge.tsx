@@ -5,7 +5,10 @@ interface RiskBadgeProps {
   size?: "sm" | "md";
 }
 
-const riskConfig: Record<RiskLevel, { label: string; className: string }> = {
+const riskConfig: Record<
+  RiskLevel,
+  { label: string; className: string }
+> = {
   low: {
     label: "Low",
     className: "bg-[var(--color-approved-bg)] text-[var(--color-approved)]",
@@ -26,11 +29,11 @@ const riskConfig: Record<RiskLevel, { label: string; className: string }> = {
 
 export function RiskBadge({ risk, size = "sm" }: RiskBadgeProps) {
   const config = riskConfig[risk];
-  
+
   return (
     <span
-      className={`inline-flex items-center rounded-full font-medium ${
-        size === "sm" ? "px-2 py-0.5 text-[10px]" : "px-2.5 py-1 text-xs"
+      className={`inline-flex items-center rounded-full font-medium tracking-tight ${
+        size === "sm" ? "px-2 py-0.5 text-[10px]" : "px-2.5 py-1 text-[11px]"
       } ${config.className}`}
     >
       {config.label}
