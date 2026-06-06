@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/shared/Button";
 import { Disclosure } from "@/components/shared/Disclosure";
 
@@ -40,8 +39,8 @@ export default function AboutPage() {
           </p>
           <p>
             Every important browser action is scoped, policy-checked, logged, replayable, 
-            and reversible or approval-gated where needed. The product communicates 
-            "controlled automation, not uncontrolled autonomy."
+            and reversible or approval-gated where needed. The product communicates
+            controlled automation, not uncontrolled autonomy.
           </p>
         </div>
       </section>
